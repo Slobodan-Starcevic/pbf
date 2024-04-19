@@ -35,7 +35,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Program Files\gitrepo\password-brute-forcer\pbf-venv"
+VIRTUAL_ENV="C:\Program Files\gitrepo\pbf\pbf-venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

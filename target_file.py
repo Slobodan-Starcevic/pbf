@@ -1,8 +1,8 @@
 
-possible_characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+possible_characters = "abcdefghijklmnopqrstuvwxyz"
 base = len(possible_characters)
-max_length = 10
-data_list = list(range(0, len(possible_characters)**10))
+max_length = 5
+data_list = range(0, len(possible_characters)**max_length)
 target_password = "passw"
 
 
@@ -17,3 +17,5 @@ def target_function(index):
 
     if result == target_password:
         return result
+
+    return None
