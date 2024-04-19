@@ -12,9 +12,7 @@ def main():
         .appName("pbf") \
         .getOrCreate()
 
-    spark.sql('SELECT current_date').show()
-
-    data = data_list
+    RDD = spark.sparkContext.parallelize(data_list)
 
     results = spark.sparkContext.parallelize(data) \
         .map(target_function) \

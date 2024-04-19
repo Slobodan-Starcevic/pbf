@@ -1,12 +1,16 @@
-import os
+def index_converter(index):
+    chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+    base = len(chars)
+    result = ""
 
-from util import get_spark_session
+    while index > 0:
+        remainder = index % base
+        result = chars[remainder] + result
+        index = index // base
 
-def main():
-    env = os.environ.get("ENVIRON")
-    spark = get_spark_session(env, "pbf")
+    return result
 
-    spark.sql('SELECT current_date').show()
 
-if __name__ == '__main__':
-    main()
+index = 87587
+combination = index_converter(index)
+print(combination)

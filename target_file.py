@@ -1,22 +1,19 @@
-import time
-import string
-import itertools
-import sys
 
-data_list = ["pass"]
+possible_characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+base = len(possible_characters)
+max_length = 10
+data_list = [range(0, len(possible_characters)**10)]
+target_password = "passw"
 
 
-def target_function(target_password):
-    cracked_password = None
-    possible_characters = string.ascii_letters + string.digits
-    base = len(possible_characters)
-    max_length = 15
+# Algorithm that converts an index into its corresponding combination based on the chosen base system
+def target_function(index):
+    result = ''
 
-    while not cracked_password:
-        for length in range(1, max_length+1):
-            for guess in itertools.product(possible_characters, repeat=length):
-                if ''.join(guess) == target_password:
-                    cracked_password = ''.join(guess)
-                    break
-                elif length == max_length+1:
-                    break
+    while index > 0:
+        remainder = index % base
+        result = possible_characters[remainder] + result
+        index = index // base
+
+    if result == target_password:
+        return result
