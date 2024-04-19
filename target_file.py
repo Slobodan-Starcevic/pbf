@@ -2,7 +2,7 @@
 possible_characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
 base = len(possible_characters)
 max_length = 10
-data_list = [range(0, len(possible_characters)**10)]
+data_list = list(range(0, len(possible_characters)**10))
 target_password = "passw"
 
 

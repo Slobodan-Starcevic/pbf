@@ -12,13 +12,11 @@ def main():
         .appName("pbf") \
         .getOrCreate()
 
-    RDD = spark.sparkContext.parallelize(data_list)
+    rdd = spark.sparkContext.parallelize(data_list)
 
-    results = spark.sparkContext.parallelize(data) \
-        .map(target_function) \
-        .collect()
+    result = rdd.map(target_function).filter(lambda x: x is not None).collect()
 
-    print(results)
+    print(result)
 
     spark.stop()
 
