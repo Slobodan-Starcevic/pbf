@@ -3,9 +3,13 @@ import findspark
 findspark.init()
 
 from pyspark.sql import SparkSession
-from target_file import target_function
-from target_file import data_list
 import time
+
+possible_characters = "abcdefghijklmnopqrstuvwxyz"
+base = len(possible_characters)
+max_length = 5
+data_list = range(0, len(possible_characters) ** max_length)
+target_password = "passw"
 
 
 def main():
@@ -23,6 +27,20 @@ def main():
     print(result, f"{(time.time() - time_start)} seconds taken")
 
     spark.stop()
+
+
+def target_function(index):
+    result = ''
+
+    while index > 0 and len(result) < max_length:
+        remainder = index % base
+        result = possible_characters[remainder] + result
+        index = index // base
+
+    if result == target_password:
+        return result
+
+    return None
 
 
 if __name__ == '__main__':
