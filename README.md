@@ -1,0 +1,1 @@
+Een kleine 'playground' om scripts te testen in een python env. Simpele password brute forcer en AIVD kerstpuzzel solver script. Uiteindelijk gebruikt in mijn pyspark project om over een gedistribueerd network opgelost te worden. (Een sudoku solver zat hier ook bij maar blijkbaar verwijderd of overwritten).
